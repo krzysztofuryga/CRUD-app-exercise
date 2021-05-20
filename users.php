@@ -22,6 +22,13 @@ function createUser($data)
 
 function updateUser($data, $id)
 {
+    $users = getUsers();
+    foreach ($users as $i => $user) {
+        if ($user['userId'] == $id) {
+            $users[$i] = array_merge($user, $data);
+        }
+    }
+    file_put_contents(__DIR__ . '/users.json', json_encode($users));
 }
 
 function deleteUser($id)
