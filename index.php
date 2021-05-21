@@ -6,6 +6,9 @@ include("./htmlParts/header.php");
 ?>
 
 <div class="container">
+    <p>
+        <a class="btn btn-outline-success" href="create.php">Create new User</a>
+    </p>
     <table class="table">
         <thead>
             <tr>
@@ -38,7 +41,10 @@ include("./htmlParts/header.php");
                     <td>
                         <a href="view.php?id=<?php echo $user['userId'] ?>" class="btn btn-sm btn-outline-info">View</a>
                         <a href="update.php?id=<?php echo $user['userId'] ?>" class="btn btn-sm btn-outline-info">Update</a>
-                        <a href="delete.php?id=<?php echo $user['userId'] ?>" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <form action="delete.php" method="post">
+                            <input type="hidden" name="userId" value="<?php echo $user['userId'] ?>">
+                            <button class="btn btn-sm btn-outline-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
