@@ -78,3 +78,30 @@ function putJson($users)
 {
     file_put_contents(__DIR__ . '/users.json', json_encode($users, JSON_PRETTY_PRINT));
 }
+
+function validateUser($user, &$errors)
+{
+    $isValid = true;
+
+    if (!$user['firstName']) {
+        $isValid = false;
+        $errors['firstName'] = 'First Name is mandatory';
+    }
+
+    if (!$user['lastName']) {
+        $isValid = false;
+        $errors['lastName'] = 'Last Name is mandatory';
+    }
+
+    if ($user['emailAddress'] && !filter_var($user['emailAddress'], FILTER_VALIDATE_EMAIL)) {
+        $isValid = false;
+        $errors['emailAddress'] = 'This must be a valid email address';
+    }
+
+    if (!filter_var($user['phoneNumber'], FILTER_VALIDATE_INT)) {
+        $isValid = false;
+        $errors['phoneNumber'] = 'This must be a valid phone number';
+    }
+
+    return $isValid;
+}

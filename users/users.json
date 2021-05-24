@@ -25,5 +25,14 @@
         "emailAddress": "jone.mac@learningcontainer.com",
         "website": "jone.mac.com",
         "extension": "jpg"
+    },
+    {
+        "firstName": "Adam",
+        "lastName": "Nowak2",
+        "phoneNumber": "123456",
+        "emailAddress": "adam.nowak@example.com",
+        "website": "adamnowak.com",
+        "userId": 1901967,
+        "extension": "jpg"
     }
 ]
